@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using FluentAssertions;
 using NUnit.Framework;
 using Puzzles.Day1;
@@ -21,7 +22,7 @@ public class CaloriesTests
     [TestCase(2, "1", "1")]
     public void GetHighest_ReturnsSum_ForSingleElf(int expected, params string[] input)
     {
-        var calories = _calories.GetHighestCalories(input);
+        int calories = _calories.GetHighestCalories(input);
 
         calories.Should().Be(expected);
     }
@@ -31,7 +32,7 @@ public class CaloriesTests
     [TestCase(2, "1", "1", "", "1")]
     public void GetHighest_ReturnsSum_FromFirstElf(int expected, params string[] input)
     {
-        var calories = _calories.GetHighestCalories(input);
+        int calories = _calories.GetHighestCalories(input);
 
         calories.Should().Be(expected);
     }
@@ -40,7 +41,7 @@ public class CaloriesTests
     [TestCase(2, "1", "", "2")]
     public void GetHighest_ReturnsSum_FromHighestCarryingElf(int expected, params string[] input)
     {
-        var calories = _calories.GetHighestCalories(input);
+        int calories = _calories.GetHighestCalories(input);
 
         calories.Should().Be(expected);
     }
@@ -48,9 +49,9 @@ public class CaloriesTests
     [Test, Explicit]
     public async Task Solve_Part1()
     {
-        var input = await new InputReader().GetPuzzleInput(1);
+        List<string> input = await new InputReader().GetPuzzleInput(1);
 
-        var calories = _calories.GetHighestCalories(input);
+        int calories = _calories.GetHighestCalories(input);
 
         calories.Should().Be(0);
     }
@@ -58,7 +59,7 @@ public class CaloriesTests
     [TestCase(2, "1", "", "1")]
     public void GetHighest_ReturnsSum_OfTwoElves(int expected, params string[] input)
     {
-        var calories = _calories.GetHighestCalories(input, 2);
+        int calories = _calories.GetHighestCalories(input, 2);
 
         calories.Should().Be(expected);
     }
@@ -66,9 +67,9 @@ public class CaloriesTests
     [Test, Explicit]
     public async Task Solve_Part2()
     {
-        var input = await new InputReader().GetPuzzleInput(1);
+        List<string> input = await new InputReader().GetPuzzleInput(1);
 
-        var calories = _calories.GetHighestCalories(input, 3);
+        int calories = _calories.GetHighestCalories(input, 3);
 
         calories.Should().Be(0);
     }

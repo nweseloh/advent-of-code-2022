@@ -10,7 +10,7 @@ public class InputReader
     {
         string file = $"./Day{day}/input.txt";
         
-        using var streamReader = new StreamReader(file);
+        using StreamReader streamReader = new StreamReader(file);
 
         List<string> lines = new List<string>();
         while (!streamReader.EndOfStream)

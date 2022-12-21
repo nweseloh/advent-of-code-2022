@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <Folder Include="Day1\" />
+    <Folder Include="Day2\" />
   </ItemGroup>
 
 </Project>
